@@ -326,4 +326,81 @@ function showSuccessMessage() {
     successMessageDiv.remove();
   }, 5000);
 }
+
+// function myCeate(){
+//   var text1 = document.getElementById('text').value;
+//   var text1 = document.getElementById('text').value;
+//   var text1 = document.getElementById('text').value;
+//   var text1 = document.getElementById('text').value;
+
+  
+
+//   var date = new Date().toDateString()
+
+//   var text1 = document.getElementById('table');
+//   var row = table.insertRow(1);
+//   var cail = row.insertCall(2);
+//   var cail = row.insertCall(3);
+//   var cail = row.insertCall(4);
+  
+//   cell1.innerHTML = date;
+
+
+// /
+
+
+// Get references to the form and table elements
+const form = document.getElementById('data-form');
+const tableBody = document.getElementById('table-body');
+
+// Event listener for form submission
+form.addEventListener('submit', (event) => {
+    event.preventDefault(); // Prevent form submission to avoid page reload
+
+    // Get form input values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const date = document.getElementById('date').value;
+
+    // Create a new table row and populate it with the form data
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${email}</td>
+        <td>${date}</td>
+    `;
+
+    // Append the new row to the table body
+    tableBody.appendChild(newRow);
+
+    // Clear the form fields for the next entry
+    form.reset();
+});
+
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $date = $_POST["date"];
+
+    // Format the data to be stored (you can customize this based on your requirements)
+    $data = "$name\t$email\t$date\n";
+
+    // Append the data to the file
+    file_put_contents("data.txt", $data, FILE_APPEND);
+};
+
+
+
+
+
+
+
+
+
+
+
 // // ................form data end..............
