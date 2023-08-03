@@ -314,6 +314,9 @@ function submitForm(event) {
 }
 
 function showSuccessMessage() {
+
+
+
   const successMessageDiv = document.createElement("div");
   successMessageDiv.style.textAlign = "center";
   successMessageDiv.style.color = "green";
@@ -321,82 +324,127 @@ function showSuccessMessage() {
 
   const formContainer = document.querySelector("form");
   formContainer.appendChild(successMessageDiv);
-
+  // addEventListener("submit", function (event));
+  
+  
   setTimeout(function () {
     successMessageDiv.remove();
-  }, 5000);
-}
+  }, 3000)
+  
+};
+  // const successMessageDiv = document.createElement("div");
+  // successMessageDiv.style.textAlign = "center";
+  // successMessageDiv.style.color = "green";
+  // successMessageDiv.innerHTML = "<p>Data Sent Successfully</p>";
 
-// function myCeate(){
-//   var text1 = document.getElementById('text').value;
-//   var text1 = document.getElementById('text').value;
-//   var text1 = document.getElementById('text').value;
-//   var text1 = document.getElementById('text').value;
-
+  // const formContainer = document.querySelector("form");
+  // formContainer.appendChild(successMessageDiv);
+  //  addEventListener("submit", function (event))
+  
+  
+  // setTimeout(function () {
+  //   successMessageDiv.remove();
+  // }, 3000);
   
 
-//   var date = new Date().toDateString()
+  // };
 
-//   var text1 = document.getElementById('table');
-//   var row = table.insertRow(1);
-//   var cail = row.insertCall(2);
-//   var cail = row.insertCall(3);
-//   var cail = row.insertCall(4);
+
+row.insertCall(4);
   
-//   cell1.innerHTML = date;
+    document.getElementById("myForm").addEventListener("submit", function (event) {
+        event.preventDefault();
 
+        const formData = new FormData(event.target);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
 
-// /
+        // Send the form data to the backend server using Fetch API
+        fetch("/api/saveFormData", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            console.log("Form data sent successfully:", response);
+        })
+        .catch((error) => {
+            console.error("Error sending form data:", error);
+        });
+    });
 
+    const express = require('express');
+    const bodyParser = require('body-parser');
+    const app = express();
+    const port = 3000;
+    
+    // Configure body-parser middleware to parse JSON data
+    app.use(bodyParser.json());
+    
+    // POST endpoint to handle form data and save it in the table
+    app.post('/api/saveFormData', (req, res) => {
+        const formData = req.body;
+    
+        // Here you can implement the logic to insert the data into your table (e.g., using a database)
+    
+        console.log('Received form data:', formData);
+        res.json({ message: 'Form data received and saved successfully.' });
+    });
+    
+    //   Start the server
+    //  app.listen(port, () => {
+    //     console.log(`Server listening on http://localhost:${port}`);
+    //  });
+    
 
-// Get references to the form and table elements
-const form = document.getElementById('data-form');
-const tableBody = document.getElementById('table-body');
+  function submitForm(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
 
-// Event listener for form submission
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent form submission to avoid page reload
+    // Get the input values
+  
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
-    // Get form input values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const date = document.getElementById('date').value;
-
-    // Create a new table row and populate it with the form data
-    const newRow = document.createElement('tr');
+    // Create a new table row with the input values
+    const newRow = document.createElement("tr");
     newRow.innerHTML = `
-        <td>${name}</td>
-        <td>${email}</td>
-        <td>${date}</td>
+      <td>${1}</td>
+      <td>${name}</td>
+      <td>${email}</td>
+      <td>${message}</td>
     `;
 
     // Append the new row to the table body
+    const tableBody = document.querySelector(".table tbody");
     tableBody.appendChild(newRow);
 
-    // Clear the form fields for the next entry
-    form.reset();
-});
+    // Display the success message
+    const successMessage = document.getElementById("success-message");
+    successMessage.style.display = "block";
+  }
 
 
-
-
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  php
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Get the form data
+    $name = $_POST["1"];
     $name = $_POST["name"];
     $email = $_POST["email"];
-    $date = $_POST["date"];
-
-    // Format the data to be stored (you can customize this based on your requirements)
-    $data = "$name\t$email\t$date\n";
-
-    // Append the data to the file
-    file_put_contents("data.txt", $data, FILE_APPEND);
-};
-
-
-
-
-
+    $message = $_POST["message"];
+  
+    // Save the data to a database or file if needed
+  
+    // Optionally, you can redirect back to the form page after processing
+    // header("Location: form_page.html");
+  }
+  
+  
 
 
 
@@ -404,3 +452,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 // // ................form data end..............
+
+
+
+
+
