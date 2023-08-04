@@ -314,146 +314,104 @@ function submitForm(event) {
 }
 
 function showSuccessMessage() {
-
-
-
+  const successMessage = document.getElementById("successMessage");
   const successMessageDiv = document.createElement("div");
   successMessageDiv.style.textAlign = "center";
   successMessageDiv.style.color = "green";
   successMessageDiv.innerHTML = "<p>Data Sent Successfully</p>";
-
   const formContainer = document.querySelector("form");
   formContainer.appendChild(successMessageDiv);
-  // addEventListener("submit", function (event));
-  
-  
+
+  // const topContainer = document.body.firstChild;
+  // document.body.insertBefore(successMessageDiv, topContainer);
+  showSuccessMessage();
   setTimeout(function () {
     successMessageDiv.remove();
-  }, 3000)
-  
-};
-  // const successMessageDiv = document.createElement("div");
-  // successMessageDiv.style.textAlign = "center";
-  // successMessageDiv.style.color = "green";
-  // successMessageDiv.innerHTML = "<p>Data Sent Successfully</p>";
-
-  // const formContainer = document.querySelector("form");
-  // formContainer.appendChild(successMessageDiv);
-  //  addEventListener("submit", function (event))
-  
-  
-  // setTimeout(function () {
-  //   successMessageDiv.remove();
-  // }, 3000);
-  
-
-  // };
-
-
+  }, 3000);
+}
 row.insertCall(4);
-  
-    document.getElementById("myForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const formData = new FormData(event.target);
-        const data = {};
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-
-        // Send the form data to the backend server using Fetch API
-        fetch("/api/saveFormData", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-        .then((response) => response.json())
-        .then((response) => {
-            console.log("Form data sent successfully:", response);
-        })
-        .catch((error) => {
-            console.error("Error sending form data:", error);
-        });
+document.getElementById("myForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = {};
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+  // Send the form data to the backend server using Fetch API
+  fetch("/api/saveFormData", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log("Form data sent successfully:", response);
+    })
+    .catch((error) => {
+      console.error("Error sending form data:", error);
     });
+});
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+const port = 3000;
+// Configure body-parser middleware to parse JSON data
+app.use(bodyParser.json());
 
-    const express = require('express');
-    const bodyParser = require('body-parser');
-    const app = express();
-    const port = 3000;
-    
-    // Configure body-parser middleware to parse JSON data
-    app.use(bodyParser.json());
-    
-    // POST endpoint to handle form data and save it in the table
-    app.post('/api/saveFormData', (req, res) => {
-        const formData = req.body;
-    
-        // Here you can implement the logic to insert the data into your table (e.g., using a database)
-    
-        console.log('Received form data:', formData);
-        res.json({ message: 'Form data received and saved successfully.' });
-    });
-    
-    //   Start the server
-    //  app.listen(port, () => {
-    //     console.log(`Server listening on http://localhost:${port}`);
-    //  });
-    
+// POST endpoint to handle form data and save it in the table
+app.post("/api/saveFormData", (req, res) => {
+  const formData = req.body;
+  // Here you can implement the logic to insert the data into your table (e.g., using a database)
+  console.log("Received form data:", formData);
+  res.json({ message: "Form data received and saved successfully." });
+});
 
-  function submitForm(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+//   Start the server
+//  app.listen(port, () => {
+//     console.log(`Server listening on http://localhost:${port}`);
+//  });
 
-    // Get the input values
-  
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+function submitForm(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
 
-    // Create a new table row with the input values
-    const newRow = document.createElement("tr");
-    newRow.innerHTML = `
+  // Get the input values
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Create a new table row with the input values
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
       <td>${1}</td>
       <td>${name}</td>
       <td>${email}</td>
       <td>${message}</td>
     `;
 
-    // Append the new row to the table body
-    const tableBody = document.querySelector(".table tbody");
-    tableBody.appendChild(newRow);
+  // Append the new row to the table body
+  const tableBody = document.querySelector(".table tbody");
+  tableBody.appendChild(newRow);
 
-    // Display the success message
-    const successMessage = document.getElementById("success-message");
-    successMessage.style.display = "block";
-  }
+  // Display the success message
+  const successMessage = document.getElementById("success-message");
+  successMessage.style.display = "block";
+}
 
+php;
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  // Get the form data
+  $name = $_POST["1"];
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $message = $_POST["message"];
 
-  php
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Get the form data
-    $name = $_POST["1"];
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-  
-    // Save the data to a database or file if needed
-  
-    // Optionally, you can redirect back to the form page after processing
-    // header("Location: form_page.html");
-  }
-  
-  
+  // Save the data to a database or file if needed
 
-
-
-
-
+  // Optionally, you can redirect back to the form page after processing
+  // header("Location: form_page.html");
+}
 
 // // ................form data end..............
-
-
-
-
-
