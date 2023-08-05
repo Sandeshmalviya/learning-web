@@ -275,5 +275,42 @@
 
 // ................form data start..............
 
- 
+function resetForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("message").value = "";
+  document.getElementById("successMessage").style.display = "";
+}
+
+function submitForm(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const formData = {
+    name,
+    email,
+    message,
+  };
+  fetch("https://personal-api-my41.vercel.app/api/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById("successMessage").style.display = "block";
+      resetForm();
+      setTimeout(() => {
+        document.getElementById("successMessage").style.display = "none";
+      }, 3000);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 // // ................form data end..............
