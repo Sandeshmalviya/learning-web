@@ -294,7 +294,7 @@ function submitForm(event) {
     email,
     message,
   };
-  fetch("https://personal-api-my41.vercel.app/api/users", {
+  fetch("https://personal-api-my41.vercel.app/api/users",{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -307,10 +307,16 @@ function submitForm(event) {
       resetForm();
       setTimeout(() => {
         document.getElementById("successMessage").style.display = "none";
-      }, 3000);
+      }, 3000);                         
     })
-    .catch((error) => {
-      console.error("Error:", error);
+    .catch((error) => {                                                         
+      console.error("Error:", error);                                                      
     });
 }
 // // ................form data end..............
+
+// ................Table data start..............
+
+
+
+// ................Table data End..............
