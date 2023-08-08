@@ -19,6 +19,7 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -410,10 +411,11 @@
   </div>
   </div>
     </div>
-        <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
-          <div class="member align-items-start">
+        <!-- <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="align-items-start">
             <div class="member-info align-items-center">
-            <table class="table table-bordered table-hover">
+           <table class="table table-bordered table-hover">
+          
               <thead>
                 <tr>
                   <th scope="col">S.No</th>
@@ -423,18 +425,47 @@
                   <th scope="col">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  
-                </tr>
-              
-              
-             
-              </tbody>
-            </table>
+                
+                <tbody id="data">
+                    </table>
+            </div>
           </div>
-                 </section> 
-    
+        </div> -->
+        <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="member-align-items-start">
+            <div class="member-info align-items-center">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">E-mail</th>
+                      <th scope="col">Message</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="data">
+                    <!-- Your table rows here -->
+                  </tbody>
+                </table>
+                <div style="text-align: center;">
+                <button
+                class="btn btn-primary"
+                id="btnrefresh"
+                onclick="refreshTableWithLoading()"
+                >Refrest Table Data</button>
+
+                
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </section> 
+
+
     <!-- End Team Section -->
     <!-- ======= Pricing Section ======= -->
   <!---- <section id="pricing" class="pricing">
@@ -602,6 +633,10 @@ l        <div class="section-title">
           </div>
         </main>     
     </section> -->
+
+
+
+
     <!-- End Contact Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

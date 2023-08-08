@@ -294,7 +294,7 @@ function submitForm(event) {
     email,
     message,
   };
-  fetch("https://personal-api-my41.vercel.app/api/users",{
+  fetch("https://personal-api-my41.vercel.app/api/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -307,16 +307,74 @@ function submitForm(event) {
       resetForm();
       setTimeout(() => {
         document.getElementById("successMessage").style.display = "none";
-      }, 3000);                         
+      }, 3000);
     })
-    .catch((error) => {                                                         
-      console.error("Error:", error);                                                      
+    .catch((error) => {
+      console.error("Error:", error);
     });
 }
 // // ................form data end..............
 
-// ................Table data start..............
+// // ................Table data start..............
 
+function fetchDataAndPopulateTable() {
+  fetch("https://personal-api-my41.vercel.app/api/users")
+    .then((response) => response.json())
+    .then((data) => {
+      const tableBody = document.getElementById("data");
 
+      // Clear existing table data
+      tableBody.innerHTML = "";
 
-// ................Table data End..............
+      // Iterate through the received data and create table rows
+      data.forEach((item, index) => {
+        const row = document.createElement("tr");
+
+        // Populate the table cells with data
+        row.innerHTML = `
+            <td style="text-align: center">${index + 1}</td>
+            <td>${item.name}</td>
+            <td>${item.email}</td>
+            <td>${item.message}</td>
+            <td><i class="material-icons" style="color: #dc3545"
+            onclick="deleterow()"
+            >delete</i>
+            <i class="material-icons" style="color: #0d6efd">edit</i>
+            </td>
+          `;
+
+        // Append the row to the table body
+        tableBody.appendChild(row);
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}
+
+// Call the function to populate the table when the page loads
+document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
+// // ................Table data end..............
+
+// // ...............round button start..............
+function refreshTableWithLoading() {
+  var button = document.querySelector("#btnrefresh");
+  var originalText = button.innerHTML;
+  button.innerHTML = 'Refreshing <span class="spinner"></span>';
+  button.disabled = true;
+
+  // Simulate loading for 3 seconds
+  setTimeout(function () {
+    fetchDataAndPopulateTable(); // Your data loading function
+    button.innerHTML = originalText;
+    button.disabled = false;
+  }, 2000);
+}
+// // ...............round button end..............
+// // ...............delete data start..............
+
+function deleterow() {
+  alert("delete");
+}
+
+// // ...............delete data end..............
