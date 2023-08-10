@@ -326,30 +326,46 @@ function fetchDataAndPopulateTable() {
 
       tableBody.innerHTML = "";
 
-      data.forEach((item, index) => {
-        const row = document.createElement("tr");
+      if (data.length === 0) {
+        const noDataRow = document.createElement("tr");
+        noDataRow.innerHTML = `
+          <td colspan="5" style="text-align: center" class="text-primary">
+          <br/><br/>
+          <h3>No Data Available</h3>
+          <br/><br/>
+          </td>
+        `;
+        tableBody.appendChild(noDataRow);
+      } else {
+        data.forEach((item, index) => {
+          const row = document.createElement("tr");
 
-        row.innerHTML = `
-            <td style="text-align: center">${index + 1}</td>
-            <td style="text-align: center">${item.name}</td>
-            <td style="text-align: center">${item.email}</td>
-            <td style="text-align: center">${item.message}</td>
-            <td style="text-align: center"><i class="material-icons" style="color: #dc3545"
-            onclick="deleteRow('${item._id}')"
-            >delete </i>
-            <i class="material-icons" style="color: #0d6efd"
-            onclick="editRow('${item._id}')"
-            >edit</i>
-            </td>
-         
-          `;
-        tableBody.appendChild(row);
-      });
+          row.innerHTML = `
+              <td style="text-align: center">${index + 1}</td>
+              <td style="text-align: center">${item.name}</td>
+              <td style="text-align: center">${item.email}</td>
+              <td style="text-align: center">${item.message}</td>
+              <td style="text-align: center"><i class="material-icons" style="color: #dc3545"
+              onclick="deleteRow('${item._id}')"
+              >delete </i>
+              <i class="material-icons" style="color: #0d6efd"
+              onclick="editRow('${item._id}')"
+              >edit</i>
+              </td>
+            `;
+          tableBody.appendChild(row);
+        });
+      }
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
 }
+
+document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
+    
+
+      
 
 document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
 // // ................Table data end..............
@@ -379,6 +395,12 @@ function deleteRow(id) {
 
 // // ...............delete data end..............
 
+// // ...............edit data start..............
 function editRow(id){
   alert(id);
+ 
+
+  
 }
+// // ...............edit data end..............
+
