@@ -308,6 +308,7 @@ function submitForm(event) {
       setTimeout(() => {
         document.getElementById("successMessage").style.display = "none";
       }, 3000);
+      fetchDataAndPopulateTable();
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -330,13 +331,15 @@ function fetchDataAndPopulateTable() {
 
         row.innerHTML = `
             <td style="text-align: center">${index + 1}</td>
-            <td>${item.name}</td>
-            <td>${item.email}</td>
-            <td>${item.message}</td>
-            <td><i class="material-icons" style="color: #dc3545"
-            onclick="deleterow()"
+            <td style="text-align: center">${item.name}</td>
+            <td style="text-align: center">${item.email}</td>
+            <td style="text-align: center">${item.message}</td>
+            <td style="text-align: center"><i class="material-icons" style="color: #dc3545"
+            onclick="deleteRow('${item._id}')"
             >delete </i>
-            <i class="material-icons" style="color: #0d6efd">edit</i>
+            <i class="material-icons" style="color: #0d6efd"
+            onclick="editRow('${item._id}')"
+            >edit</i>
             </td>
          
           `;
@@ -351,42 +354,31 @@ function fetchDataAndPopulateTable() {
 document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
 // // ................Table data end..............
 
-// // ...............round button start..............
-function refreshTableWithLoading() {
-  var button = document.querySelector("#btnrefresh");
-  var originalText = button.innerHTML;
-  button.innerHTML = 'Refreshing <span class="spinner"></span>';
-  button.disabled = true;
-
-  // Simulate loading for 3 seconds
-  setTimeout(function () {
-    fetchDataAndPopulateTable(); // Your data loading function
-    button.innerHTML = originalText;
-    button.disabled = false;
-  }, 2000);
-}
-// // ...............round button end..............
 // // ...............delete data start..............
 
+function deleteRow(id) {
+  // Show a confirmation dialog
+  const confirmation = confirm("Are you sure you want to delete this data ?");
 
-
-function deleterow()
-{
-
-  return confirm('Are you sure your want to delete this record ?');
+  if (confirmation) {
+    fetch(`https://personal-api-my41.vercel.app/api/users/${id}`, {
+      method: "DELETE"
+    })
+      .then(() => {
+        const rowToDelete = document.querySelector(`tr[data-id="${id}"]`);
+        if (rowToDelete) {
+          rowToDelete.remove();
+        }
+        fetchDataAndPopulateTable();
+      })
+      .catch((error) => {
+        console.error("Error deleting data:", error);
+      });
+  }
 }
-                   
-                 
-
-
-
-
-
-
-
-
-
-
-
 
 // // ...............delete data end..............
+
+function editRow(id){
+  alert(id);
+}
