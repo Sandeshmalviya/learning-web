@@ -323,14 +323,11 @@ function fetchDataAndPopulateTable() {
     .then((data) => {
       const tableBody = document.getElementById("data");
 
-      // Clear existing table data
       tableBody.innerHTML = "";
 
-      // Iterate through the received data and create table rows
       data.forEach((item, index) => {
         const row = document.createElement("tr");
 
-        // Populate the table cells with data
         row.innerHTML = `
             <td style="text-align: center">${index + 1}</td>
             <td>${item.name}</td>
@@ -338,12 +335,11 @@ function fetchDataAndPopulateTable() {
             <td>${item.message}</td>
             <td><i class="material-icons" style="color: #dc3545"
             onclick="deleterow()"
-            >delete</i>
+            >delete </i>
             <i class="material-icons" style="color: #0d6efd">edit</i>
             </td>
+         
           `;
-
-        // Append the row to the table body
         tableBody.appendChild(row);
       });
     })
@@ -352,7 +348,6 @@ function fetchDataAndPopulateTable() {
     });
 }
 
-// Call the function to populate the table when the page loads
 document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
 // // ................Table data end..............
 
@@ -373,8 +368,25 @@ function refreshTableWithLoading() {
 // // ...............round button end..............
 // // ...............delete data start..............
 
-function deleterow() {
-  alert("delete");
+
+
+function deleterow()
+{
+
+  return confirm('Are you sure your want to delete this record ?');
 }
+                   
+                 
+
+
+
+
+
+
+
+
+
+
+
 
 // // ...............delete data end..............
