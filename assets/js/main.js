@@ -396,11 +396,20 @@ function deleteRow(id) {
 // // ...............delete data end..............
 
 // // ...............edit data start..............
-function editRow(id){
-  alert(id);
- 
+
+function editRow(id,) 
+  
 
   
-}
-// // ...............edit data end..............
+
+   
+
+
+
+
+
+
+
+
+
 
