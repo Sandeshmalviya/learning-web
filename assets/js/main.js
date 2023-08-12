@@ -363,11 +363,6 @@ function fetchDataAndPopulateTable() {
 }
 
 document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
-    
-
-      
-
-document.addEventListener("DOMContentLoaded", fetchDataAndPopulateTable);
 // // ................Table data end..............
 
 // // ...............delete data start..............
@@ -396,20 +391,11 @@ function deleteRow(id) {
 // // ...............delete data end..............
 
 // // ...............edit data start..............
+function editRow(id){
+  alert(id);
 
-function editRow(id,) 
   
-
-  
-
-   
+}
 
 
-
-
-
-
-
-
-
-
+// // ...............edit data end..............
