@@ -349,8 +349,11 @@ function fetchDataAndPopulateTable() {
               onclick="deleteRow('${item._id}')"
               >delete </i>
               <i class="material-icons" style="color: #0d6efd"
-              onclick="editRow('${item._id}')"
-              >edit</i>
+              <i class="material-icons" style="color: #0d6efd"
+              onclick="editRow('${item._id}', '${item.name}', '${
+            item.email
+          }', '${item.message}')"
+             >edit</i>
               </td>
             `;
           tableBody.appendChild(row);
@@ -373,7 +376,7 @@ function deleteRow(id) {
 
   if (confirmation) {
     fetch(`https://personal-api-my41.vercel.app/api/users/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
     })
       .then(() => {
         const rowToDelete = document.querySelector(`tr[data-id="${id}"]`);
@@ -391,11 +394,33 @@ function deleteRow(id) {
 // // ...............delete data end..............
 
 // // ...............edit data start..............
-function editRow(id){
-  alert(id);
 
-  
+function editRow(id, oldName, oldEmail, oldMessage) {
+  const newName = prompt("Enter new name:", oldName);
+  const newEmail = prompt("Enter new email:", oldEmail);
+  const newMessage = prompt("Enter new message:", oldMessage);
+
+  if (newName !== null && newEmail !== null && newMessage !== null) {
+    const updatedData = {
+      name: newName,
+      email: newEmail,
+      message: newMessage,
+    };
+
+    fetch(`https://personal-api-my41.vercel.app/api/users/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then(() => {
+        fetchDataAndPopulateTable();
+      })
+      .catch((error) => {
+        console.error("Error updating data:", error);
+      });
+  }
 }
-
 
 // // ...............edit data end..............
