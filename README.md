@@ -1,12 +1,7 @@
 # DIGITAL-HUB
-
 (![Alt text](./assets/git-img/image-2.png))
-
-
 Welcome to the repository for my DIGITAL-HUB website built using HTML, CSS, and JavaScript! This website serves as a showcase of my skills, projects, and interests.
-
 ## Table of Contents
-
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -14,9 +9,7 @@ Welcome to the repository for my DIGITAL-HUB website built using HTML, CSS, and 
 - [Usage](#usage)
 - [Contributions](#contributions)
 - [License](#license)
-
 ## Introduction
-
 This website is designed to highlight my portfolio, provide information about me, and serve as a platform to share my experiences and projects. It's a representation of my journey as a developer.
 
 ## Features
