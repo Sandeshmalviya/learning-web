@@ -1,6 +1,6 @@
 # DIGITAL-HUB
 
-![Website Preview](![Alt text](image-2.png))
+(![Alt text](image-2.png))
 
 
 Welcome to the repository for my DIGITAL-HUB website built using HTML, CSS, and JavaScript! This website serves as a showcase of my skills, projects, and interests.
@@ -23,8 +23,7 @@ This website is designed to highlight my portfolio, provide information about me
 
 - **Portfolio Showcase:** Display a collection of my recent projects, along with descriptions and links.
 - **About Me:** Learn about my background, skills, and interests.
-
-![About Me](/path/to/about-me-image.png)
+(![Alt text](image-3.png))
 
 - **Blog:** Read articles I've written about various technical and creative topics.
 - **Contact:** Find ways to get in touch with me.
@@ -38,7 +37,7 @@ This website is designed to highlight my portfolio, provide information about me
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/your-username/your-website.git`
+1. Clone this repository: `git clone https://github.com/your-username/your-digitl-hub.git`
 2. Navigate to the project directory: `cd your-website`
 
 ## Usage
