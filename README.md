@@ -1,6 +1,6 @@
 # DIGITAL-HUB
 
-(![Alt text](image-2.png))
+(![Alt text](./assets/git-img/image-2.png))
 
 
 Welcome to the repository for my DIGITAL-HUB website built using HTML, CSS, and JavaScript! This website serves as a showcase of my skills, projects, and interests.
