@@ -1,6 +1,9 @@
-# Your Website Name
+# DIGITAL-HUB
 
-Welcome to the repository for my personal website built using HTML, CSS, and JavaScript! This website serves as a showcase of my skills, projects, and interests.
+![Website Preview](![Alt text](image-2.png))
+
+
+Welcome to the repository for my DIGITAL-HUB website built using HTML, CSS, and JavaScript! This website serves as a showcase of my skills, projects, and interests.
 
 ## Table of Contents
 
@@ -20,6 +23,9 @@ This website is designed to highlight my portfolio, provide information about me
 
 - **Portfolio Showcase:** Display a collection of my recent projects, along with descriptions and links.
 - **About Me:** Learn about my background, skills, and interests.
+
+![About Me](/path/to/about-me-image.png)
+
 - **Blog:** Read articles I've written about various technical and creative topics.
 - **Contact:** Find ways to get in touch with me.
 
@@ -57,7 +63,4 @@ Contributions are welcome! If you find any issues or want to enhance the website
 [Specify the license you want to use for your project, such as MIT, Apache, etc.]
 
 ---
-Feel free to customize and expand upon this template to provide all the necessary information about your website and how to use it. Good luck with your project!
-
-
-
+Feel free to customize and expand upon this template with images that represent your website's design, features, and overall aesthetics.
