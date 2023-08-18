@@ -23,7 +23,7 @@ This website is designed to highlight my portfolio, provide information about me
 
 - **Portfolio Showcase:** Display a collection of my recent projects, along with descriptions and links.
 - **About Me:** Learn about my background, skills, and interests.
-(![Alt text](image-3.png))
+(![Alt text]( ./assets/git-img/image-3.png))
 
 - **Blog:** Read articles I've written about various technical and creative topics.
 - **Contact:** Find ways to get in touch with me.
