@@ -1,5 +1,5 @@
 # DIGITAL-HUB
-(![Alt text](./assets/git-img/image-4.png))
+(![Alt text](./assets/git-img/image-2.png))
 Welcome to the repository for my DIGITAL-HUB website built using HTML, CSS, and JavaScript! This website serves as a showcase of my skills, projects, and interests.
 ## Table of Contents
 - [Introduction](#introduction)
@@ -16,7 +16,7 @@ This website is designed to highlight my portfolio, provide information about me
 
 - **Portfolio Showcase:** Display a collection of my recent projects, along with descriptions and links.
 - **About:** Learn about my background, skills, and interests.
-(![Alt text](./assets/git-img/image-7.png))
+(![Alt text](./assets/git-img/image-3.png))
 
 - **Blog:** Read articles I've written about various technical and creative topics.
 - **Contact:** Find ways to get in touch with me.
